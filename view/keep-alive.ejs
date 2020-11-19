@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keep Alive</title>
+</head>
+<body>
+  <a href="/">Go To Send Beacon</a>
+
+  <script>
+    window.addEventListener('beforeunload', () => {
+      const headers = new Headers()
+      headers.append('Connection', 'keep-alive')
+      fetch('/logs', {
+        headers
+      })
+    })
+  </script>
+</body>
+</html>
